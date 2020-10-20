@@ -15,8 +15,6 @@ defmodule ProjectWeb.Router do
 
   scope "/", ProjectWeb do
     pipe_through :browser
-
-    get "/", PageController, :index
   end
 
   scope "/api", ProjectWeb do
@@ -29,16 +27,14 @@ defmodule ProjectWeb.Router do
     end
 
     scope "/workingtimes" do
-      # get "/:userID/:workingtimeID", WorkingTimeController, :getAll
-      get "/:userID/:workingtimeID", WorkingTimeController, :getById
-      post "/:userID", WorkingTimeController, :add
-      put "/:id", WorkingTimeController, :edit
-      delete "/:id", WorkingTimeController, :delete
+      get "/:userID", WorkingtimeController, :getAll
+      get "/:userID/:workingtimeID", WorkingtimeController, :getById
+      post "/:userID", WorkingtimeController, :create
+      put "/:id", WorkingtimeController, :update
+      delete "/:id", WorkingtimeController, :delete
     end
 
     scope "/clocks" do
-      get "/:userID", UserController, :getByUserId
-      post "/:userID", UserController, :add
     end
   end
   if Mix.env() in [:dev, :test] do
