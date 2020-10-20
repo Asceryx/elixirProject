@@ -15,5 +15,6 @@ defmodule Project.ElixirProject.Workingtime do
     workingtime
     |> cast(attrs, [:start, :end])
     |> validate_required([:start, :end])
+    |> foreign_key_constraint(:id_user)
   end
 end

@@ -35,8 +35,6 @@ defmodule ProjectWeb.Router do
     end
 
     scope "/clocks" do
-      get "/:userID", UserController, :getByUserId
-      post "/:userID", UserController, :add
     end
   end
   if Mix.env() in [:dev, :test] do

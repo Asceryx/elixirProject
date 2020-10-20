@@ -14,7 +14,7 @@ defmodule ProjectWeb.WorkingtimeController do
   def create(conn, %{"userID" => user_id, "start" => start, "end" => endi}) do
     with {:ok, %Workingtime{}} <- ElixirProject.create_workingtime(%{"id_user"=> user_id, "start"=> start, "end"=> endi} ) do
       conn
-      |> put_status(:created)
+      |> json(200)
     end
   end
 
