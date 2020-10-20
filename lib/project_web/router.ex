@@ -21,11 +21,11 @@ defmodule ProjectWeb.Router do
 
   scope "/api", ProjectWeb do
     scope "/users" do
-      get "/:userID", UserController, :getById
-      get "/", UserController, :getByEmail
-      post "/", UserController, :add
-      put "/:userID", UserController, :edit
-      delete "/:userID", UserController, :delete
+      get "/:userID", UsersController, :show
+      # get "/", UsersController, :getByEmail
+      post "/", UsersController, :create
+      put "/:userID", UsersController, :update
+      delete "/:userID", UsersController, :delete
     end
 
     scope "/workingtimes" do
