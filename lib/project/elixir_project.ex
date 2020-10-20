@@ -43,8 +43,8 @@ defmodule Project.ElixirProject do
   end
 
   def get_workingtime_by_intervall(id_user, wo_start, wo_end) do
-    #query = from(wo in Workingtime, where: wo.id_user == ^id_user and wo.start <= Date.from_iso8601!(wo_start) and wo.end <= Date.from_iso8601!(^wo_end), select: %{id: wo.id, start: wo.start, end: wo.end})
-    #Repo.all(query)
+    query = from(wo in Workingtime, where: wo.id_user == ^id_user and wo.start >= ^wo_start and wo.end <= ^wo_end, select: %{id: wo.id, start: wo.start, end: wo.end})
+    Repo.all(query)
   end
 
   @doc """

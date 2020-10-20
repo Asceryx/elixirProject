@@ -13,8 +13,8 @@ defmodule Project.ElixirProject.Workingtime do
   @doc false
   def changeset(workingtime, attrs) do
     workingtime
-    |> cast(attrs, [:start, :end])
-    |> validate_required([:start, :end])
+    |> cast(attrs, [:start, :end, :id_user])
+    |> validate_required([:start, :end, :id_user])
     |> foreign_key_constraint(:id_user)
   end
 end
