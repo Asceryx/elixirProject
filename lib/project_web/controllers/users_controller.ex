@@ -26,6 +26,12 @@ defmodule ProjectWeb.UsersController do
     |> json(%{"id" => users.id, "username" => users.username, "email" => users.email})
   end
 
+  def showByUsername(conn, %{ "username" => username, "email" => email}) do
+    users = Account.get_users_by_username!(username, email)
+    conn
+    |> json(%{"id" => users.id, "username" => users.username, "email" => users.email})
+  end
+
   def update(conn, %{"userID" => userId, "users" => users_params}) do
     users = Account.get_users!(userId)
 

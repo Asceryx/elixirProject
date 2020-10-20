@@ -21,7 +21,7 @@ defmodule Project.Account do
     Repo.all(Users)
   end
 
-  
+
 
   @doc """
   Gets a single users.
@@ -39,6 +39,9 @@ defmodule Project.Account do
   """
   def get_users!(id), do: Repo.get!(Users, id)
 
+  def get_users_by_username!(username, email) do
+    Repo.get_by(Users, username: username, email: email)
+  end
   @doc """
   Creates a users.
 
